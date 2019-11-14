@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ChartDataSets } from 'chart.js';
+import { Label } from 'ng2-charts';
 
 @Component({
   selector: 'app-root',
@@ -6,11 +8,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  lineChartData;
-  lineChartLabels;
+  lineChartData: ChartDataSets[];
+  lineChartLabels: Label[];
 
-  onFileLoaded(newData) {
-    console.log(newData);
+  onFileLoaded(newData: {values: ChartDataSets[], dataSetNames: Label[]}) {
     this.lineChartData = newData.values;
     this.lineChartLabels = newData.dataSetNames;
   }

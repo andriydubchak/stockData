@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { ChartsModule } from 'ng2-charts';
@@ -10,11 +11,12 @@ import { DataInputComponent } from './components/data-input/data-input.component
   declarations: [
     AppComponent,
     LineChartComponent,
-    DataInputComponent
+    DataInputComponent,
   ],
   imports: [
     BrowserModule,
-    ChartsModule
+    HttpClientModule,
+    ChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

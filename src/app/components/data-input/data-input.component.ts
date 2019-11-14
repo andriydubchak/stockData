@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -10,9 +11,13 @@ export class DataInputComponent implements OnInit {
   @Output()
   onFileLoaded = new EventEmitter();
 
-  constructor() { }
+  constructor(public http: HttpClient) { }
 
   ngOnInit() {
+    this.http.get('assets/data.txt', {responseType: 'text'})
+      .subscribe((data) => {
+        this.onFileLoaded.emit(JSON.parse(data));
+      });
   }
 
   handleFileInput(newData: File) {

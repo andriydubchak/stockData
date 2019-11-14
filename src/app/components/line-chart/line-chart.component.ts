@@ -1,6 +1,6 @@
-import { Component, OnInit, ViewChild, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ChartDataSets, ChartOptions } from 'chart.js';
-import { Color, BaseChartDirective, Label } from 'ng2-charts';
+import { Label } from 'ng2-charts';
 import * as pluginAnnotations from 'chartjs-plugin-annotation';
 
 @Component({
@@ -8,7 +8,7 @@ import * as pluginAnnotations from 'chartjs-plugin-annotation';
   templateUrl: './line-chart.component.html',
   styleUrls: ['./line-chart.component.scss']
 })
-export class LineChartComponent implements OnInit {
+export class LineChartComponent {
   @Input()
   public lineChartData: ChartDataSets[];
 
@@ -35,19 +35,5 @@ export class LineChartComponent implements OnInit {
   lineChartType = 'line';
   lineChartPlugins = [pluginAnnotations];
 
-  @ViewChild(BaseChartDirective, { static: true } as any) chart: BaseChartDirective;
-
   constructor() { }
-
-  ngOnInit() {
-  }
-
-  // events
-  public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
-    // console.log(event, active);
-  }
-
-  public chartHovered({ event, active }: { event: MouseEvent, active: {}[] }): void {
-    // console.log(event, active);
-  }
 }
