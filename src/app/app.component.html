@@ -1,3 +1,4 @@
-<div class="chart-container">
-  <app-line-chart></app-line-chart>
+<app-data-input (onFileLoaded)="onFileLoaded($event)"></app-data-input>
+<div class="chart-container" *ngIf="lineChartData && lineChartLabels">
+  <app-line-chart [lineChartData]="lineChartData" [lineChartLabels]="lineChartLabels"></app-line-chart>
 </div>

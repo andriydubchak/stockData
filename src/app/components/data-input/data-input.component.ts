@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+
 
 @Component({
   selector: 'app-data-input',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./data-input.component.scss']
 })
 export class DataInputComponent implements OnInit {
+  @Output()
+  onFileLoaded = new EventEmitter();
 
   constructor() { }
 
@@ -17,7 +20,7 @@ export class DataInputComponent implements OnInit {
 
     reader.onloadend = (result: ProgressEvent) => {
       const resultObj = JSON.parse((result.srcElement as any).result);
-      console.log(resultObj);
+      this.onFileLoaded.emit(resultObj);
     }
 
     reader.readAsText(newData[0]);
