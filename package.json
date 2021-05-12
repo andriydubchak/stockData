@@ -21,7 +21,7 @@
     "@angular/platform-browser-dynamic": "~7.0.0",
     "@angular/router": "~7.0.0",
     "@types/d3": "^5.7.2",
-    "chart.js": "^2.9.2",
+    "chart.js": "^2.9.4",
     "chartjs-plugin-annotation": "^0.5.7",
     "core-js": "^2.5.4",
     "d3": "^5.12.0",
